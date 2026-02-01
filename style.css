@@ -1,0 +1,163 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Merienda One", cursive;
+  font-size: 1.75em;
+  overflow: hidden;
+  background-image: 
+    url("images/bg2.png"), 
+    url("images/bg.png"),
+    linear-gradient(to bottom, #ffe6f0, #ffccd8);
+  background-position: left top, right top, center top;
+  background-size: contain, contain, cover;
+  background-repeat: no-repeat;
+  background-color: #ffe6f0;
+}
+
+/* Mood Emoji */
+#mood {
+  position: fixed;
+  top: 26px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 66px;
+  z-index: 9999;
+}
+
+/* Glass Card */
+.card {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1.5px solid rgba(255,255,255,0.3);
+  padding: 61px;
+  border-radius: 31px;
+  width: 560px;
+  text-align: center;
+  box-shadow: 0 18px 44px rgba(0,0,0,0.25);
+  position: relative;
+  z-index: 10;
+}
+
+h2 { margin-bottom: 44px; }
+
+/* Buttons */
+.buttons { position: relative; height: 96px; }
+
+button {
+  position: absolute;
+  padding: 18px 42px;
+  border: none;
+  border-radius: 35px;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+#yesBtn { left: 53px; background:#ff4d79; color:white; }
+#noBtn {
+  left: 333px;
+  background:#ddd;
+  transition: left 0.4s ease, top 0.4s ease;
+}
+
+/* Falling */
+.heart, .flower, .sparkle {
+  position: fixed;
+  top: -35px;
+  pointer-events: none;
+  animation: fall linear forwards;
+  z-index: 5000;
+}
+
+.heart { font-size: 42px; }
+.flower { font-size: 36px; }
+.sparkle { font-size: 28px; color: #fffacd; }
+
+@keyframes fall {
+  to {
+    transform: translateY(193vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Popup */
+#customPopup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  background: rgba(255, 77, 121, 0.95);
+  color: white;
+  padding: 25px 50px;
+  border-radius: 25px;
+  font-size: 32px;
+  font-weight: bold;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 20000;
+}
+
+#customPopup.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Gift Button */
+#giftBtn {
+  position: fixed;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 40px;
+  background: #ff4d79;
+  border: none;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  z-index: 15000;
+}
+
+/* Video Popup */
+#videoPopup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  background: rgba(0,0,0,0.85);
+  padding: 20px;
+  border-radius: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 25000;
+}
+
+#videoPopup.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+#videoPopup video {
+  width: 320px;
+  border-radius: 15px;
+}
+
+/* Close Button */
+#closeVideo {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: white;
+  color: black;
+  border-radius: 50%;
+  padding: 5px 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
